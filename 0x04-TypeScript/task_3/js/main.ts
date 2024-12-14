@@ -77,8 +77,32 @@ function teachClass(todayClass: Subjects): string {
   }
 }
 
-// Example usage
-console.log(executeWork(createEmployee(200))); // Output: Getting to work
-console.log(executeWork(createEmployee(1000))); // Output: Getting to director tasks
-console.log(teachClass("Math")); // Output: Teaching Math
-console.log(teachClass("History")); // Output: Teaching History
+// console.log(executeWork(createEmployee(200)));
+// console.log(executeWork(createEmployee(1000)));
+// console.log(teachClass("Math")); 
+// console.log(teachClass("History")); 
+
+
+/// <reference path="./crud.d.ts" />
+
+import { RowID, RowElement } from "./interface";
+import * as CRUD from "./crud";
+
+// Create a RowElement object
+const row: RowElement = {
+  firstName: "Guillaume",
+  lastName: "Salva",
+};
+
+// Insert the row into the database
+const newRowID: RowID = CRUD.insertRow(row);
+console.log(`Row inserted with ID: ${newRowID}`);
+
+// Update the row with a new age field
+const updatedRow: RowElement = { ...row, age: 23 };
+CRUD.updateRow(newRowID, updatedRow);
+console.log(`Row updated with ID: ${newRowID}`);
+
+// Delete the row
+CRUD.deleteRow(newRowID);
+console.log(`Row with ID ${newRowID} deleted`);
