@@ -50,6 +50,17 @@ function executeWork(employee) {
         console.log(employee.workTeacherTasks());
     }
 }
+// Function to teach a class
+function teachClass(todayClass) {
+    if (todayClass === "Math") {
+        return "Teaching Math";
+    }
+    else {
+        return "Teaching History";
+    }
+}
 // Example usage
 console.log(executeWork(createEmployee(200))); // Output: Getting to work
 console.log(executeWork(createEmployee(1000))); // Output: Getting to director tasks
+console.log(teachClass("Math")); // Output: Teaching Math
+console.log(teachClass("History")); // Output: Teaching History

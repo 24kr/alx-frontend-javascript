@@ -1,55 +1,31 @@
-// Implement the Director class
-var Director = /** @class */ (function () {
-    function Director() {
-    }
-    Director.prototype.workFromHome = function () {
-        return "Working from home";
-    };
-    Director.prototype.getCoffeeBreak = function () {
-        return "Getting a coffee break";
-    };
-    Director.prototype.workDirectorTasks = function () {
-        return "Getting to director tasks";
-    };
-    return Director;
-}());
-// Implement the Teacher class
-var Teacher = /** @class */ (function () {
-    function Teacher() {
-    }
-    Teacher.prototype.workFromHome = function () {
-        return "Cannot work from home";
-    };
-    Teacher.prototype.getCoffeeBreak = function () {
-        return "Cannot have a break";
-    };
-    Teacher.prototype.workTeacherTasks = function () {
-        return "Getting to work";
-    };
-    return Teacher;
-}());
-// Define the createEmployee function
-function createEmployee(salary) {
-    if (typeof salary === "number" && salary < 500) {
-        return new Teacher();
-    }
-    else {
-        return new Director();
-    }
-}
-// Type predicate to check if an employee is a Director
-function isDirector(employee) {
-    return employee.workDirectorTasks !== undefined;
-}
-// Function to execute work based on employee type
-function executeWork(employee) {
-    if (isDirector(employee)) {
-        console.log(employee.workDirectorTasks());
-    }
-    else {
-        console.log(employee.workTeacherTasks());
-    }
-}
-// Example usage
-console.log(executeWork(createEmployee(200))); // Output: Getting to work
-console.log(executeWork(createEmployee(1000))); // Output: Getting to director tasks
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.cTeacher = exports.react = exports.java = exports.cpp = void 0;
+var Cpp_1 = require("./Cpp");
+var Java_1 = require("./Java");
+var React_1 = require("./React");
+// Export constants for subjects
+exports.cpp = new Cpp_1.Cpp();
+exports.java = new Java_1.Java();
+exports.react = new React_1.React();
+// Create and export a Teacher object
+exports.cTeacher = {
+    firstName: 'John',
+    lastName: 'Doe',
+    experienceTeachingC: 10,
+};
+// Cpp Subject
+console.log('C++');
+exports.cpp.setTeacher(exports.cTeacher);
+console.log(exports.cpp.getRequirements());
+console.log(exports.cpp.getAvailableTeacher());
+// Java Subject
+console.log('Java');
+exports.java.setTeacher(exports.cTeacher);
+console.log(exports.java.getRequirements());
+console.log(exports.java.getAvailableTeacher());
+// React Subject
+console.log('React');
+exports.react.setTeacher(exports.cTeacher);
+console.log(exports.react.getRequirements());
+console.log(exports.react.getAvailableTeacher());

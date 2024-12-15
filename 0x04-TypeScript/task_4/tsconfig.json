@@ -1,5 +1,7 @@
 {
   "compilerOptions": {
+    "baseUrl": "./", 
+    "paths": { "*": ["subjects/*"]},
     "outDir": "./dist/",
     "sourceMap": true,
     "noImplicitAny": true,
@@ -7,6 +9,10 @@
     "target": "es5",
     "allowJs": true,
     "moduleResolution": "node",
+    "esModuleInterop": true,
         "skipLibCheck": true
-  }
+  },
+  "include": ["subjects/**/*"],
+  "exclude": ["node_modules"]
 }
+
